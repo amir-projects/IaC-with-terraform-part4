@@ -19,7 +19,29 @@ This repository is designed to help you explore and master advanced Terraform co
 
 ## 1️⃣ Terraform Provisioners
 
-Provisioners allow you to execute scripts or commands **locally** or **on remote machines** as part of a resource's lifecycle typically after creation or before destruction. They are often used for tasks that fall outside Terraform's native capabilities, such as bootstrapping systems or running custom setup logic.
+Terraform is primarily designed to manage infrastructure resources **declaratively**. However, there are times when you need to perform **imperative actions**, such as running setup scripts or configuring software on newly created resources.
+
+This is where **provisioners** come in.
+
+
+
+### 🧰 What Are Provisioners?
+
+Provisioners allow you to execute **arbitrary scripts or commands** during the creation or destruction of a resource. They are typically used for tasks like bootstrapping and configuring software — actions that can't be fully managed through Terraform's native resource model.
+
+> ⚠️ **Note:**  
+> Provisioners are **not first-class citizens** in Terraform — they lack state-awareness like standard resources — but they can be useful in specific scenarios.
+
+
+
+### ⚙️ When Do Provisioners Run?
+
+- **Create-time**: After a resource has been successfully created.
+- **Destroy-time**: Before a resource is destroyed (also known as a "destroy provisioner").
+
+> 💥 **Important Behavior:**  
+> If a `create-time` provisioner fails, Terraform will mark the resource as **tainted**, meaning it will be destroyed and recreated during the next `terraform apply`.
+
 
 ### ✅ Common Use Cases:
 - Bootstrapping virtual machines or containers
