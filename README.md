@@ -304,7 +304,7 @@ module "ec2_instance" {
     Name = "my-ec2-instance"
   }
 }
-
+```
 This block instructs Terraform to use the module located at `./modules/ec2` and pass in the required input variables such as `instance_type`, `ami`, and `tags`.
 
 ### 🌐 Example: Using a Module from Terraform Registry
