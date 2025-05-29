@@ -32,7 +32,7 @@ Provisioners allow you to execute scripts or commands **locally** or **on remote
 > Prefer using **user data**, **cloud-init**, or **configuration management tools** (like Ansible or Puppet) when possible.
 
 
-### 🧪 Example: Using `remote-exec` on an EC2 instance
+### 💻 Example: Using `remote-exec` on an EC2 instance
 
 ```hcl
 resource "aws_instance" "example" {
