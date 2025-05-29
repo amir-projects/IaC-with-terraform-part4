@@ -142,7 +142,7 @@ terraform apply -var-file="dev.tfvars"
 terraform workspace new prod
 terraform apply -var-file="prod.tfvars"
 ```
-## 🧪 Using `terraform.workspace` in Code
+### 🧪 Using `terraform.workspace` in Code
 
 You can dynamically configure values based on the current workspace using a conditional expression.
 
@@ -162,7 +162,7 @@ This allows a single configuration to adapt its behavior across environments lik
 
 ---
 
-## Terraform Modules
+## 2️⃣ Terraform Modules
 
 Terraform Modules help you organize and reuse infrastructure code by grouping related resources together. Modules allow you to avoid repetition, enforce best practices, and build scalable infrastructure.
 
@@ -186,4 +186,18 @@ module-name/
 ├── main.tf         # Resources and logic
 ├── variables.tf    # Input variable definitions
 ├── outputs.tf      # Output values
+```
+
+You can organize your project by placing reusable modules in a `modules/` directory and referencing them from your main configuration.
+
+**Example:**
+
+```
+project-root/
+├── main.tf
+├── modules/
+│   └── ec2/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
 ```
