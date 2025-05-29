@@ -92,3 +92,25 @@ terraform workspace show
 
 # Delete a workspace
 terraform workspace delete dev
+```
+
+## 💡 Example Use Case
+
+You want to deploy the same EC2 instance in `dev` and `prod` environments, but with different instance types. Use **workspaces** to separate the state and **conditionally configure** resources.
+
+---
+
+### 🛠 Step 1: Add Conditional Logic in `main.tf`
+
+```hcl
+variable "instance_type" {
+  description = "EC2 instance type"
+  type        = string
+  default     = "t2.micro"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = var.instance_type
+}
+```
