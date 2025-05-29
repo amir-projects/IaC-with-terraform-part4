@@ -60,7 +60,15 @@ Terraform supports several built-in provisioners. The most commonly used ones in
 
 In this guide, we'll focus on `remote-exec` and `local-exec`.
 
-### 💻 Example: Using `remote-exec` on an EC2 instance
+### 🖥 `remote-exec`
+
+The `remote-exec` provisioner runs commands **on the target machine**, typically via SSH or WinRM.  
+Use it when you need to:
+- Install software or dependencies on the remote instance
+- Run configuration scripts post-provisioning
+- Perform setup steps not handled by cloud-init or user data
+
+Example: Using `remote-exec` on an EC2 instance
 
 ```hcl
 resource "aws_instance" "example" {
@@ -90,7 +98,7 @@ This is useful for tasks like:
 - Triggering external scripts or notifications (e.g., sending a message to Slack)
 - Creating or modifying local files based on created resources
 
-#### 💻 Example: Using `local-exec` to Run Commands Locally
+Example: Using `local-exec` to Run Commands Locally
 
 The `local-exec` provisioner runs commands on the **machine where Terraform is executed** — useful for logging, triggering external actions, or preparing files.
 
