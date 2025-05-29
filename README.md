@@ -58,7 +58,7 @@ Terraform Workspaces allow you to manage multiple state files for the same confi
 
 ---
 
-## 📘 What is a Workspace?
+### 📘 What is a Workspace?
 
 A workspace is an isolated instance of state data associated with a given set of Terraform configuration files. By default, Terraform operates in the `default` workspace.
 
@@ -66,7 +66,7 @@ When you create a new workspace, Terraform maintains a separate state file for t
 
 ---
 
-## 🧠 Key Concepts
+### 🧠 Key Concepts
 
 - Workspaces share the same configuration.
 - Each workspace has its own separate state.
@@ -75,7 +75,7 @@ When you create a new workspace, Terraform maintains a separate state file for t
 
 ---
 
-## 🔧 Common Commands
+### 🔧 Common Commands
 
 ```bash
 # List all workspaces
