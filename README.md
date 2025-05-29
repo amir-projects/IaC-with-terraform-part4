@@ -142,3 +142,22 @@ terraform apply -var-file="dev.tfvars"
 terraform workspace new prod
 terraform apply -var-file="prod.tfvars"
 ```
+## 🧪 Using `terraform.workspace` in Code
+
+You can dynamically configure values based on the current workspace using a conditional expression.
+
+```hcl
+variable "instance_type" {
+  default = terraform.workspace == "prod" ? "t3.medium" : "t2.micro"
+}
+```
+This allows a single configuration to adapt its behavior across environments like dev, staging, or prod.
+
+### ⚠️ Things to Keep in Mind
+
+- Workspaces only isolate **state**, not configurations or infrastructure components.
+- Avoid relying on workspaces for strong environment separation in teams — consider using **separate backends** for each environment.
+- Best used for **lightweight environments** like `dev` or `test` where minimal isolation is acceptable.
+- Combine workspaces with **modules** and **variable files** for scalable and maintainable infrastructure design.
+
+---
