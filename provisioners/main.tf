@@ -44,6 +44,22 @@ resource "aws_instance" "instance-1" {
   key_name               = aws_key_pair.key_pair_1.key_name
   vpc_security_group_ids = [aws_security_group.sg-1.id]
 
+  provisioner "remote-exec" {
+    inline = [
+      "sudo apt-get update -y",
+      "sudo apt-get install nginx -y",
+      "sudo systemctl start nginx",
+      "sudo systemctl enable nginx"
+    ]
+
+    connection {
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file("key-pairs/yourmentors")
+      host        = self.public_ip
+    }
+  }
+
   provisioner "local-exec" {
     command = "echo Public IP: ${self.public_ip} >> instance_ips.txt"
   }
