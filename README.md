@@ -130,9 +130,10 @@ instance_type = "t3.medium"
 ```
 
 ### 🛠 Step 3: Apply in Different Workspaces
-Use workspaces to isolate environments and apply configurations with the appropriate variable file.
 
-'''bash
+Use Terraform workspaces to separate state for different environments and apply the configuration with corresponding variable files.
+
+```bash
 # Create and switch to the 'dev' workspace
 terraform workspace new dev
 terraform apply -var-file="dev.tfvars"
@@ -140,4 +141,4 @@ terraform apply -var-file="dev.tfvars"
 # Create and switch to the 'prod' workspace
 terraform workspace new prod
 terraform apply -var-file="prod.tfvars"
-'''
+```
