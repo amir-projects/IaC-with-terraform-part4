@@ -161,3 +161,29 @@ This allows a single configuration to adapt its behavior across environments lik
 - Combine workspaces with **modules** and **variable files** for scalable and maintainable infrastructure design.
 
 ---
+
+## Terraform Modules
+
+Terraform Modules help you organize and reuse infrastructure code by grouping related resources together. Modules allow you to avoid repetition, enforce best practices, and build scalable infrastructure.
+
+
+### 📘 What is a Module?
+
+A **module** is a container for multiple resources that are used together. Every Terraform configuration has at least one module — the **root module**. You can also create reusable **child modules** stored locally, in the Terraform Registry, or in a Git repository.
+
+
+### 💡 Benefits of Using Modules
+
+- 🔁 **Reusability**: Use the same logic across multiple projects or environments.
+- 🛠 **Maintainability**: Make updates in one place.
+- 📦 **Organization**: Separate infrastructure into logical components.
+- 👥 **Collaboration**: Teams can develop, test, and version modules independently.
+
+### 📁 Module Directory Structure
+A module typically contains the following files:
+```
+module-name/
+├── main.tf         # Resources and logic
+├── variables.tf    # Input variable definitions
+├── outputs.tf      # Output values
+```
