@@ -19,12 +19,20 @@ Welcome to this Terraform session where we’ll explore more advanced concepts i
 
 ## 1️⃣ Terraform Provisioners
 
-Provisioners are used to execute scripts or commands on a local or remote machine as part of resource creation or destruction.
+Provisioners allow you to execute scripts or commands **locally** or **on remote machines** as part of a resource's lifecycle — typically after creation or before destruction.
 
-### ✅ Use Cases:
-- Bootstrapping instances
-- Installing dependencies
-- Configuration tasks post-provisioning
+They are often used for tasks that fall outside Terraform's native capabilities, such as bootstrapping systems or running custom setup logic.
+
+### ✅ Common Use Cases:
+- Bootstrapping virtual machines or containers
+- Installing dependencies or updates
+- Running configuration tasks post-provisioning
+- Cleanup operations before resource deletion
+
+> ⚠️ **Important:**  
+> Provisioners are not a replacement for proper infrastructure automation.  
+> Prefer using **user data**, **cloud-init**, or **configuration management tools** (like Ansible or Puppet) when possible.
+
 
 ### 🧪 Example: Using `remote-exec` on an EC2 instance
 
@@ -48,8 +56,20 @@ resource "aws_instance" "example" {
   }
 }
 ```
-⚠️ Provisioners are a last resort — prefer using user-data or configuration management tools when possible.
+### 💻 Example: Using `local-exec` to Run Commands Locally
 
+The `local-exec` provisioner runs commands on the **machine where Terraform is executed** — useful for logging, triggering external actions, or preparing files.
+
+```hcl
+resource "aws_instance" "example" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+
+  provisioner "local-exec" {
+    command = "echo 'Instance IP: ${self.public_ip}' >> instance_ips.txt"
+  }
+}
+```
 ---
 
 ## 2️⃣ Terraform Workspaces
