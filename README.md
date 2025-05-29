@@ -114,3 +114,30 @@ resource "aws_instance" "example" {
   instance_type = var.instance_type
 }
 ```
+### 🛠 Step 2: Create a terraform.tfvars File
+
+Use separate variable files for different environments:
+
+**`dev.tfvars`**
+
+```hcl
+instance_type = "t2.micro"
+```
+**`prod.tfvars`**
+
+```hcl
+instance_type = "t3.medium"
+```
+
+### 🛠 Step 3: Apply in Different Workspaces
+Use workspaces to isolate environments and apply configurations with the appropriate variable file.
+
+'''bash
+# Create and switch to the 'dev' workspace
+terraform workspace new dev
+terraform apply -var-file="dev.tfvars"
+
+# Create and switch to the 'prod' workspace
+terraform workspace new prod
+terraform apply -var-file="prod.tfvars"
+'''
