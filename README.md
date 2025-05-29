@@ -156,7 +156,7 @@ terraform workspace show
 terraform workspace delete dev
 ```
 
-## 💡 Example Use Case
+### 💡 Example Use Case
 
 You want to deploy the same EC2 instance in `dev` and `prod` environments, but with different instance types. Use **workspaces** to separate the state and **conditionally configure** resources.
 
