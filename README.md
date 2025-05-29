@@ -219,3 +219,63 @@ project-root/
 │       ├── variables.tf
 │       └── outputs.tf
 ```
+### 🧩 Example: Using a Module in Your Configuration
+
+Once you've defined or referenced a module, you can call it directly from your main Terraform configuration:
+
+```hcl
+module "ec2_instance" {
+  source = "./modules/ec2"
+
+  instance_type = "t2.micro"
+  ami           = "ami-0c55b159cbfafe1f0"
+  tags = {
+    Name = "my-ec2-instance"
+  }
+}
+```
+This block instructs Terraform to use the module located at `./modules/ec2` and pass in the required input variables such as `instance_type`, `ami`, and `tags`.
+
+### 🖥 Example: Using a Local EC2 Module
+
+```hcl
+# modules/ec2/variables.tf
+
+variable "instance_type" {
+  description = "The type of EC2 instance to launch"
+  type        = string
+}
+
+variable "ami" {
+  description = "The Amazon Machine Image ID"
+  type        = string
+}
+
+variable "tags" {
+  description = "Tags to apply to the EC2 instance"
+  type        = map(string)
+}
+
+resource "aws_instance" "example" {
+  ami           = var.ami
+  instance_type = var.instance_type
+  tags          = var.tags
+}
+```
+
+### 🌐 Example: Using a Module from Terraform Registry
+
+Terraform Registry hosts many pre-built, production-grade modules that you can easily integrate into your infrastructure projects. You can reference these modules using the format:
+
+```hcl
+module "vpc" {
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "5.0.0"
+
+  name = "my-vpc"
+  cidr = "10.0.0.0/16"
+
+  azs             = ["us-east-1a", "us-east-1b"]
+  private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
+}
+'''
