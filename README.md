@@ -47,6 +47,7 @@ resource "aws_instance" "example" {
     }
   }
 }
+```
 ⚠️ Provisioners are a last resort — prefer using user-data or configuration management tools when possible.
 
 ---
