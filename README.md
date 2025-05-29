@@ -8,4 +8,10 @@ Welcome to this Terraform session where we’ll explore more advanced concepts i
 - Terraform Workspaces
 - Terraform Modules
 - Hands-on Lab
-- Q&A and Wrap-up
+
+## 📦 Prerequisites
+
+- Terraform installed (Latest Version Preferred)
+- AWS CLI installed & configured
+- Git and code editor (VS Code preferred)
+
