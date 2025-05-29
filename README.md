@@ -31,6 +31,17 @@ Provisioners allow you to execute scripts or commands **locally** or **on remote
 > Provisioners are not a replacement for proper infrastructure automation.  
 > Prefer using **user data**, **cloud-init**, or **configuration management tools** (like Ansible or Puppet) when possible.
 
+### 🔧 Types of Provisioners
+
+Terraform supports several built-in provisioners. The most commonly used ones include:
+
+| Provisioner     | Purpose |
+|------------------|---------|
+| `remote-exec`    | Executes commands on the target machine via SSH or WinRM |
+| `local-exec`     | Runs commands locally on the machine running Terraform |
+| `file`           | Uploads files or directories to the remote machine |
+
+In this guide, we'll focus on `remote-exec` and `local-exec`.
 
 ### 💻 Example: Using `remote-exec` on an EC2 instance
 
