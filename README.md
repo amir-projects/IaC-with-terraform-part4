@@ -1,6 +1,6 @@
 # Terraform Advanced Concepts
 
-Welcome to this Terraform session where we’ll explore more advanced concepts including **Provisioners**, **Workspaces**, and **Modules**. We’ll also walk through a **Hands-on Lab** to reinforce learning with practical examples.
+This repository is designed to help you explore and master advanced Terraform concepts such as **Provisioners**, **Workspaces**, and **Modules**, with hands-on labs that demonstrate real-world use cases. Whether you're looking to improve your Infrastructure-as-Code skills or build scalable, production-ready infrastructure, this repo provides practical examples and clear explanations to support your learning journey.
 
 ## 📅 Agenda
 
