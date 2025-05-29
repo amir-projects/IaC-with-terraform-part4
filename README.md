@@ -162,7 +162,7 @@ This allows a single configuration to adapt its behavior across environments lik
 
 ---
 
-## 2️⃣ Terraform Modules
+## 3️⃣ Terraform Modules
 
 Terraform Modules help you organize and reuse infrastructure code by grouping related resources together. Modules allow you to avoid repetition, enforce best practices, and build scalable infrastructure.
 
