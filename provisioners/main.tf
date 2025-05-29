@@ -61,7 +61,7 @@ resource "aws_instance" "instance-1" {
   }
 
   provisioner "local-exec" {
-    command = "echo Public IP: ${self.public_ip} >> instance_ips.txt"
+    command = "echo Public IP: ${self.public_ip} > instance_ips.txt"
   }
 
   tags = {

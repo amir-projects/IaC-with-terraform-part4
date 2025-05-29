@@ -39,4 +39,4 @@ terraform.rc
 
 # End of https://www.toptal.com/developers/gitignore/api/terraform
 **/key-pairs/*
-**/instance_ips.txt/*
+
