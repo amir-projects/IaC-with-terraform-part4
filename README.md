@@ -256,6 +256,8 @@ variable "tags" {
   type        = map(string)
 }
 
+# modules/ec2/main.tf
+
 resource "aws_instance" "example" {
   ami           = var.ami
   instance_type = var.instance_type
@@ -278,4 +280,33 @@ module "vpc" {
   azs             = ["us-east-1a", "us-east-1b"]
   private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
 }
-'''
+```
+### 🧩 Best Practices for Working with Modules
+
+To ensure your Terraform modules are maintainable, reusable, and production-ready, follow these best practices:
+
+- ✅ **Modular Design**:  
+  Keep each module focused on a single responsibility (e.g., networking, compute, storage). Avoid bundling unrelated resources.
+
+- 🔁 **Reusability Over Duplication**:  
+  Build generic, parameterized modules that can be reused across environments (dev/staging/prod) and projects.
+
+- 📦 **Use Input Variables**:  
+  Expose configuration options via input variables to allow customization without modifying the module internals.
+
+- 🔐 **Validate Inputs**:  
+  Use `validation` blocks and `default` values where appropriate to prevent misconfigurations.
+
+  ```hcl
+  variable "instance_type" {
+    description = "The EC2 instance type"
+    type        = string
+    default     = "t2.micro"
+    validation {
+      condition     = contains(["t2.micro", "t2.small", "t3.medium"], var.instance_type)
+      error_message = "Only specific instance types are allowed."
+    }
+  }
+  ```
+- 📁 **Version Your Modules** :
+  When publishing modules (e.g., to Terraform Registry or private module repository), use semantic versioning to manage changes safely.
