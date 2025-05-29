@@ -82,7 +82,15 @@ resource "aws_instance" "example" {
   }
 }
 ```
-### 💻 Example: Using `local-exec` to Run Commands Locally
+### 🖥 `local-exec`
+
+The `local-exec` provisioner runs a command on the **machine where Terraform is executed**.  
+This is useful for tasks like:
+- Logging output or resource details
+- Triggering external scripts or notifications (e.g., sending a message to Slack)
+- Creating or modifying local files based on created resources
+
+#### 💻 Example: Using `local-exec` to Run Commands Locally
 
 The `local-exec` provisioner runs commands on the **machine where Terraform is executed** — useful for logging, triggering external actions, or preparing files.
 
