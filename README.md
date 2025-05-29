@@ -19,7 +19,7 @@ Welcome to this Terraform session where we’ll explore more advanced concepts i
 
 ## 1️⃣ Terraform Provisioners
 
-Provisioners allow you to execute scripts or commands **locally** or **on remote machines** as part of a resource's lifecycle — typically after creation or before destruction.
+Provisioners allow you to execute scripts or commands **locally** or **on remote machines** as part of a resource's lifecycle typically after creation or before destruction.
 
 They are often used for tasks that fall outside Terraform's native capabilities, such as bootstrapping systems or running custom setup logic.
 
