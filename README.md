@@ -263,22 +263,6 @@ project-root/
 │       ├── variables.tf
 │       └── outputs.tf
 ```
-### 🧩 Example: Using a Module in Your Configuration
-
-Once you've defined or referenced a module, you can call it directly from your main Terraform configuration:
-
-```hcl
-module "ec2_instance" {
-  source = "./modules/ec2"
-
-  instance_type = "t2.micro"
-  ami           = "ami-0c55b159cbfafe1f0"
-  tags = {
-    Name = "my-ec2-instance"
-  }
-}
-```
-This block instructs Terraform to use the module located at `./modules/ec2` and pass in the required input variables such as `instance_type`, `ami`, and `tags`.
 
 ### 🖥 Example: Using a Local EC2 Module
 
@@ -308,6 +292,20 @@ resource "aws_instance" "example" {
   tags          = var.tags
 }
 ```
+Once you've defined or referenced a module, you can call it directly from your main Terraform configuration:
+
+```hcl
+module "ec2_instance" {
+  source = "./modules/ec2"
+
+  instance_type = "t2.micro"
+  ami           = "ami-0c55b159cbfafe1f0"
+  tags = {
+    Name = "my-ec2-instance"
+  }
+}
+
+This block instructs Terraform to use the module located at `./modules/ec2` and pass in the required input variables such as `instance_type`, `ami`, and `tags`.
 
 ### 🌐 Example: Using a Module from Terraform Registry
 
