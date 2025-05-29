@@ -48,3 +48,46 @@ resource "aws_instance" "example" {
   }
 }
 ⚠️ Provisioners are a last resort — prefer using user-data or configuration management tools when possible.
+
+---
+
+# Terraform Workspaces
+
+Terraform Workspaces allow you to manage multiple state files for the same configuration. They are useful when deploying the same infrastructure to different environments (e.g., `dev`, `staging`, `prod`) without duplicating your code.
+
+---
+
+## 📘 What is a Workspace?
+
+A workspace is an isolated instance of state data associated with a given set of Terraform configuration files. By default, Terraform operates in the `default` workspace.
+
+When you create a new workspace, Terraform maintains a separate state file for that workspace, allowing you to deploy the same configuration independently across multiple environments.
+
+---
+
+## 🧠 Key Concepts
+
+- Workspaces share the same configuration.
+- Each workspace has its own separate state.
+- Variables do **not** automatically change with workspaces.
+- Use `terraform.workspace` to write logic based on the current workspace.
+
+---
+
+## 🔧 Common Commands
+
+```bash
+# List all workspaces
+terraform workspace list
+
+# Create a new workspace
+terraform workspace new dev
+
+# Switch to a workspace
+terraform workspace select dev
+
+# Show current workspace
+terraform workspace show
+
+# Delete a workspace
+terraform workspace delete dev
