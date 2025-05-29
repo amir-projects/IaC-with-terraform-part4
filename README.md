@@ -51,7 +51,7 @@ resource "aws_instance" "example" {
 
 ---
 
-# Terraform Workspaces
+## 2️⃣ Terraform Workspaces
 
 Terraform Workspaces allow you to manage multiple state files for the same configuration. They are useful when deploying the same infrastructure to different environments (e.g., `dev`, `staging`, `prod`) without duplicating your code.
 
