@@ -4,6 +4,7 @@ locals {
     prod = "t3.small"
   }
 }
+
 data "aws_ami" "ubuntu_latest" {
   most_recent = true
   owners      = ["099720109477"] # Canonical
@@ -21,12 +22,12 @@ data "aws_ami" "ubuntu_latest" {
 
 
 resource "aws_key_pair" "key_pair_1" {
-  key_name   = "yourmentors"
+  key_name   = "yourmentorss"
   public_key = file("key-pairs/yourmentors.pub")
 }
 
 resource "aws_security_group" "sg-1" {
-  name        = "yourmentors"
+  name        = "yourmentorss"
   description = "Allow SSH inbound traffic"
 
   ingress {
