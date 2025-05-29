@@ -29,11 +29,6 @@ This is where **provisioners** come in.
 
 Provisioners allow you to execute **arbitrary scripts or commands** during the creation or destruction of a resource. They are typically used for tasks like bootstrapping and configuring software — actions that can't be fully managed through Terraform's native resource model.
 
-> ⚠️ **Note:**  
-> Provisioners are **not first-class citizens** in Terraform — they lack state-awareness like standard resources — but they can be useful in specific scenarios.
-
-
-
 ### ⚙️ When Do Provisioners Run?
 
 - **Create-time**: After a resource has been successfully created.
